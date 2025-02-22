@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Main container that holds both left and right sections */
+main {
+  display: flex;
+  height: 100%;  /* Full height of the viewport */
+  width: 100%;
+  padding: 1.5rem;
+  gap: 1rem;
+  flex-direction: row;  /* Ensure horizontal split */
+}
+
+/* Left section (input area) */
+main .left {
+  flex: 1;  /* This will make the left section grow to take equal width */
+  min-height: 50%; /* Minimum height */
+  border-radius: 0.7rem;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Styling the code container in the left section */
+.left .code,
+.code pre,
+.code pre code {
+  flex-grow: 1;  /* Allow the code container to expand and fill available space */
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;  /* Allow scrolling inside if the content exceeds height */
+}
+
+/* Review button in the left section */
+.left .review {
+  position: relative;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  align-self: flex-end;
+}
+
+/* Right section (output area) */
+main .right {
+  flex: 1;  /* This will make the right section grow to take equal width */
+  min-height: 50%; /* Minimum height */
+  border-radius: 0.7rem;
+  background-color: #343434;
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 1.5rem;
+  overflow-y: auto; /* Allow scrolling if content exceeds height */
+}
+
+/* For small screen responsiveness */
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column; /* Stack sections vertically on smaller screens */
+    gap: 1rem;
+  }
+  main .left, main .right {
+    min-height: 200px; /* Ensure both sections have a minimum height */
+  }
+}
